@@ -32,11 +32,11 @@ print(f"Day: {dollarsym}{((year_reward / 365) * min) * usdmult:.2f} {adaorusd} -
 print(f"Epoch: {dollarsym}{((year_reward / epochs) * min) * usdmult:.2f} {adaorusd} - {dollarsym}{((year_reward / epochs) * max) * usdmult:.2f} {adaorusd} (average of {dollarsym}{(year_reward / epochs) * usdmult:.2f} {adaorusd})")
 print(f"Month: {dollarsym}{((year_reward / 12) * min) * usdmult:.2f} {adaorusd} - {dollarsym}{((year_reward / 12) * max) * usdmult:.2f} {adaorusd} (average of {dollarsym}{(year_reward / 12) * usdmult:.2f} {adaorusd})")
 print(f"Year: {dollarsym}{(year_reward * min) * usdmult:.2f} {adaorusd} - {dollarsym}{(year_reward * max) * usdmult:.2f} {adaorusd} (average of {dollarsym}{(year_reward) * usdmult:.2f} {adaorusd}) ") 
-print(f"Total accumulated after 1 year: {dollarsym}{(principle + year_reward * min) * usdmult:.2f} {adaorusd} - {dollarsym}{(principle + year_reward * max) * usdmult:.2f} {adaorusd} (average of {dollarsym}{(principle + year_reward) * usdmult:.2f} {adaorusd} (including priciple))")
+print(f"Total accumulated after 1 year: {dollarsym}{(principle + year_reward) * usdmult:.2f} {adaorusd} | {dollarsym}{(principle + year_reward * min) * usdmult:.2f} {adaorusd} - {dollarsym}{(principle + year_reward * max) * usdmult:.2f} {adaorusd} ")
 if years >= 5:
-    print(f"Total accumulated after 5 years: {dollarsym}{(fiveyreward * min) * usdmult:.2f} {adaorusd} - {dollarsym}{(fiveyreward * max) * usdmult:.2f} {adaorusd} (average of {dollarsym}{(fiveyreward) * usdmult:.2f} {adaorusd} (including priciple))")
+    print(f"Total accumulated after 5 years: {dollarsym}{(fiveyreward) * usdmult:.2f} {adaorusd} | {dollarsym}{(fiveyreward * min) * usdmult:.2f} {adaorusd} - {dollarsym}{(fiveyreward * max) * usdmult:.2f} {adaorusd}  ")
 if 1 < years != 5:
-    print(f"Total accumulated after {years} years: {dollarsym}{(reward * min) * usdmult:.2f} {adaorusd} - {dollarsym}{(reward * max) * usdmult:.2f} {adaorusd} (average of {dollarsym}{(reward) * usdmult:.2f} {adaorusd} (including priciple))")
+    print(f"Total accumulated after {years} years: {dollarsym}{(reward) * usdmult:.2f} {adaorusd} | {dollarsym}{(reward * min) * usdmult:.2f} {adaorusd} - {dollarsym}{(reward * max) * usdmult:.2f} {adaorusd} ")
 
     
     
