@@ -1,48 +1,23 @@
-# Constants (adjust these values as needed)
-#total_ada_staked = 10_000_000  # Total ADA staked in your pool
-annual_reward_rate = 0.05  # Annual reward rate (5% as an example)
+principle = 2300
+years = 10
+rate = 0.05
+epochs = 73 #this is the compounding frequency ADA epochs are roughly 5 days
+min = .9262
+max = 1.1926
 
-# User inputs
-staked_amount = float(input("Enter the amount of ADA you want to stake: "))
-# staking_duration = int(input("Enter the number of epochs you plan to stake for: "))
-# Measure in: 1 Epochs 2 Days 3 Months 4 Years
-evdvmvy = int(input("Caluclate for: 1. epochs 2. days 3. months 4. years? Enter a number to choose: "))
+reward = principle * (1 + (rate / epochs))**(epochs * years)
+fiveyreward = principle * (1 + (rate / epochs))**(epochs * 5)
+year_reward = (principle * rate)
 
-# Duration: An epoch is 5 days. 6 epochs is roughly 1 month, and 73 epochs is 1 year. 
-if evdvmvy == 1:
-    period = "epochs"
-    staking_duration = int(input("Enter the number of " + period + " you plan to stake for: "))
-  
-if evdvmvy == 2:
-    period = "days"
-    staking_duration = int(input("Enter the number of " + period + " you plan to stake for: "))
-  
-if evdvmvy == 3:
-    period = "months"
-    staking_duration = int(input("Enter the number of " + period + " you plan to stake for: "))
-if evdvmvy == 4:
-    period = "years"
-    staking_duration = int(input("Enter the number of " + period + " you plan to stake for: "))
-  
-# Calculate rewards
-epoch_length = 5 * 24 * 3600  # Length of an epoch in seconds (5 days)
-reward_per_year = staked_amount * annual_reward_rate
-if evdvmvy == 1:
-    total_rewards = (reward_per_year * staking_duration) / 365
-if evdvmvy == 2:
-    total_rewards = ((reward_per_year * staking_duration) / 365) * 5
-if evdvmvy == 3:
-    total_rewards = (reward_per_year * staking_duration) / 12
-if evdvmvy == 4:
-    total_rewards = reward_per_year * staking_duration    
+print(f"Day: {(year_reward / 365) * min:.2f} ADA - {(year_reward / 365) * max:.2f} ADA (average of {year_reward / 365:.2f} ADA)")
+print(f"Epoch: {(year_reward / epochs) * min:.2f} ADA - {(year_reward / epochs) * max:.2f} ADA (average of {year_reward / epochs:.2f} ADA)")
+print(f"Month: {(year_reward / 12) * min:.2f} ADA - {(year_reward / 12) * max:.2f} ADA (average of {year_reward / 12:.2f} ADA)")
+print(f"Year: {year_reward * min:.2f} ADA - {year_reward * max:.2f} ADA (average of {year_reward:.2f} ADA) ") 
+print(f"Total accumulated after 1 year: {principle + year_reward * min:.2f} ADA - {principle + year_reward * max:.2f} (average of {(principle + year_reward):.2f} ADA (including priciple))")
+if years >= 5:
+    print(f"Total accumulated after 5 years: {fiveyreward * min:.2f} ADA - {fiveyreward * max:.2f} ADA (average of {fiveyreward:.2f} ADA (including priciple))")
+if 1 < years != 5:
+    print(f"Total accumulated after {years} years: {reward * min:.2f} ADA - {reward * max:.2f} ADA (average of {reward:.2f} ADA (including priciple))")
 
-#calculate high and low estimate
-total_rewardsL = total_rewards * .9262
-total_rewardsH = total_rewards * 1.1926
-
-# Display results
-print(f"Estimated staking rewards after {staking_duration} {period}:")
-print(f"Staked ADA: {staked_amount} ADA")
-
-print(f"Total rewards (Low Estimate): {total_rewardsL:.2f} ADA")
-print(f"Total rewards (High Estimate): {total_rewardsH:.2f} ADA")
+    
+    
